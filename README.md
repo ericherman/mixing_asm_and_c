@@ -20,6 +20,7 @@ consisting of a "main" program, and a library with a single function:
 * * *
 	/* c_power_test.c */
 	#include "c_power.h"
+	#include <stdio.h>
 
 	int main(void) {
 		int result;
@@ -110,9 +111,8 @@ Example](http://programminggroundup.blogspot.com/2007/01/chapter-4-all-about-fun
 * * *
 	# asm_power_test.s
 	#
-	#PURPOSE:  Program to illustrate how functions work
-	#		  This program will compute the value of
-	#		  2^3 + 5^2
+	#PURPOSE:	Program to illustrate how functions work
+	#		Computes the value of 2^3 + 5^2
 	#
 
 	#Everything in the main program is stored in registers,
@@ -160,25 +160,23 @@ Example](http://programminggroundup.blogspot.com/2007/01/chapter-4-all-about-fun
 	.section .text
 
 	.global power
-	#PURPOSE:   This function is used to compute
-	#		   the value of a number raised to
-	#		   a power.
+	#PURPOSE:	This function is used to compute the value of a
+	#		number raised to a power.
 	#
-	#INPUT:	 First argument - the base number
-	#		   Second argument - the power to
-	#							 raise it to
+	#INPUT:		First argument - the base number
+	#		Second argument - the power to raise it to
 	#
 	#OUTPUT:	Will give the result as a return value (%eax)
 	#
-	#NOTES:	 The power must be 1 or greater
+	#NOTES:		The power must be 1 or greater
 	#
 	#VARIABLES:
-	#		   %ebx - holds the base number
-	#		   %ecx - holds the power
+	#		%ebx - holds the base number
+	#		%ecx - holds the power
 	#
-	#		   -4(%ebp) - holds the current result
+	#		-4(%ebp) - holds the current result
 	#
-	#		   %eax is used for temporary storage
+	#		%eax is used for temporary storage
 	#
 
 	.type power, @function
@@ -187,11 +185,11 @@ Example](http://programminggroundup.blogspot.com/2007/01/chapter-4-all-about-fun
 	 movl	%esp, %ebp		# copy stack pointer to base pointer
 	 subl	$4, %esp		# make spot for local variable
 
-	 movl	8(%ebp), %ebx		# put first argument in %ebx (base)
-	 movl	12(%ebp), %ecx		# put second argument in %ecx (exponent)
+	 movl	8(%ebp), %ebx		# put base (1st argument) in %ebx
+	 movl	12(%ebp), %ecx		# put exponent (2nd arg) in %ecx
 
 	# check for power of 0
-	 movl   $1, -4(%ebp)		# store current result
+	 movl   $1, -4(%ebp)		# store current result (1)
 	 cmpl   $0, %ecx		# if the power is 0, we are done
 	 je	 end_power
 
@@ -236,7 +234,8 @@ Then, we link them together into an executable:
 	ld asm_power_test.o asm_power.o -o asm_power_test
 
 
-And finally, we execute the program and check the return code using "echo $?":
+And finally, we execute the program and check the return code using
+"echo $?":
 
 
 	$ ./asm_power_test; echo $?
