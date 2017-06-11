@@ -91,7 +91,7 @@ Perfect. "33" just as we expected.
 
 Sometimes it can be instructive, or perhaps otherwise useful, to see how
 a C program translates to assembly. See: [Generating Assembly from C by
-Example](http://tiedyedfreaks.org/generating_asm_from_c.html)
+Example](./generating_assembly_from_c.md)
 
 In our case, we're going to focus on x86 assembly which was written by
 hand, which (unlike generated assembly) should have good comments and
