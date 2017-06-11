@@ -6,14 +6,16 @@ Licensed under the terms of the GNU Lesser General Public License (LGPL)
 version 2.1 or at your option any later version.
 
 This _how to_ page is the result of a mental side-track I took as I was
-reading the excellent on-line book [ Programming from the Ground Up][1]
-([or pdf][2]) as an introduction to x86 assembly programming. While I
-was able to find some very good examples of using [in-line assembly in
-C][3] programs, I didn't see a good example of how to replace a module
-written in C with a pure assembly module. This page is a slightly
-cleaned up version of my notes from working it out. ## Simple C Let's
-start with a trivial program in C consisting of a "main" program, and a
-library with a single function:
+reading the excellent on-line book [Programming from the Ground
+Up](http://programminggroundup.blogspot.com/) ([or
+pdf](http://savannah.nongnu.org/projects/pgubook/)) as an introduction
+to x86 assembly programming. While I was able to find some very good
+examples of using [in-line assembly in
+C](http://asm.sourceforge.net/articles/linasm.html) programs, I didn't
+see a good example of how to replace a module written in C with a pure
+assembly module. This page is a slightly cleaned up version of my notes
+from working it out. ## Simple C Let's start with a trivial program in C
+consisting of a "main" program, and a library with a single function:
 
 * * *
 	/* c_power_test.c */
@@ -89,7 +91,7 @@ Perfect. "33" just as we expected.
 
 Sometimes it can be instructive, or perhaps otherwise useful, to see how
 a C program translates to assembly. See: [Generating Assembly from C by
-Example][4]
+Example](http://tiedyedfreaks.org/generating_asm_from_c.html)
 
 In our case, we're going to focus on x86 assembly which was written by
 hand, which (unlike generated assembly) should have good comments and
@@ -101,8 +103,9 @@ Now let's do more-or-less the same "power test" program using assembly.
 One big difference is that we will not print to the screen, instead we
 will simply return an exit code which we will read from the shell.
 
-The code is an only slightly modified transcription of an exercise in  [
-Programming from the Ground Up: A Function Example][5].
+The code is an only slightly modified transcription of an exercise in [
+Programming from the Ground Up: A Function
+Example](http://programminggroundup.blogspot.com/2007/01/chapter-4-all-about-functions.html#ch04lev1sec4).
 
 * * *
 	# asm_power_test.s
@@ -326,14 +329,3 @@ Sure enough! How about _that?_
 * * *
 
 Please send contributions and commentary to Eric Herman: eric@[freesa.org]
-
-[0]: (http://tiedyedfreaks.org/eric/mixing_asm_and_c.html "Mixing C & Assembly")
-[1]: http://programminggroundup.blogspot.com/
-[2]: http://savannah.nongnu.org/projects/pgubook/
-[3]: http://asm.sourceforge.net/articles/linasm.html
-[4]: http://tiedyedfreaks.org/generating_asm_from_c.html
-[5]: http://programminggroundup.blogspot.com/2007/01/chapter-4-all-about-functions.html#ch04lev1sec4
-[6]: http://freesa.org
-[7]: http://www.w3.org/Icons/valid-html401-blue
-
-
