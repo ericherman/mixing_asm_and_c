@@ -1,5 +1,10 @@
 # Mixing Assembly and C by Example
 
+Copyright (c) 2012,2017 Eric Herman
+
+Licensed under the terms of the GNU Lesser General Public License (LGPL)
+version 2.1 or at your option any later version.
+
 This _how to_ page is the result of a mental side-track I took as I was
 reading the excellent on-line book [ Programming from the Ground Up][1]
 ([or pdf][2]) as an introduction to x86 assembly programming. While I
